@@ -6,6 +6,7 @@
 
 * Лабораторная №1 - [lab1.md](/lab1/lab1.md)
 * Лабораторная №2 - [lab2.md](/lab2/lab2.md)
+* Лабораторная №3 - [lab3.md](/lab3/lab3.md)
 
 * Гайд по установке общей папки на VirtualBox - [shareddir/guide.md](/shareddir/guide.md)
 
