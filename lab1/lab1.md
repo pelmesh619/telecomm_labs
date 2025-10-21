@@ -372,3 +372,75 @@ Interface: enp0s8 | RX packets: 122 | TX packets: 130
 
 > Файлы: конфиг - [01-bonding.yaml](https://github.com/pelmesh619/telecomm_labs/blob/main/lab1/01-bonding.yaml), установка конфига - [4.sh](https://github.com/pelmesh619/telecomm_labs/blob/main/lab1/4.sh), мониторинг - [4a.sh](https://github.com/pelmesh619/telecomm_labs/blob/main/lab1/4a.sh)
 
+
+## Ответы на вопросы
+
+1. Команда `ip`:
+    
+    1. Назначить новый IPv4 адрес на интерфейс: `sudo ip addr add 192.168.1.100/24 dev INTERFACE` 
+    2. Назначить новый MAC адрес: `sudo ip link set dev INTERFACE address 00:11:22:33:44:55`
+    3. Назначить новый default gateway: `sudo ip route add default via 192.168.1.1` 
+    4. Вывести ARP-кэш: `ip neigh` или `arp -n`
+    5. Очистить ARP-кэш: `sudo ip neigh flush all`
+    6. Включить интерфейс: `sudo ip link set dev INTERFACE up`
+    7. Выключить интерфейс: `sudo ip link set dev INTERFACE down`
+
+2. Назначение статического IP через `nmcli`:
+
+    ```sh
+    # создаем подключение с именем my-con
+    sudo nmcli con add type ethernet ifname $INTERFACE con-name my-con \
+        ipv4.addresses 192.168.1.100/24 \
+        ipv4.gateway 192.168.1.1 \
+        ipv4.dns "8.8.8.8 1.1.1.1" \
+        ipv4.method manual
+
+    # включаем подключение
+    sudo nmcli con up my-con
+    ```
+
+3. Назначение статического IP через `netplan`
+
+    Создаем конфиг `/etc/netplan/01-static.yaml`:
+
+    ```yaml
+    network:
+    version: 2
+    renderer: networkd
+    ethernets:
+        eth0:
+        addresses:
+            - 192.168.1.100/24 # выбранный ip-адрес
+      routes:
+        - to: 0.0.0.0/0
+          via: 192.168.1.1
+        nameservers:
+            addresses: [8.8.8.8, 1.1.1.1]
+    ```
+
+    Применяем:
+
+    ```sh
+    sudo netplan apply
+    ```
+
+4. Режимы bonding в Linux
+
+    * `balance-rr` - round-robin, последовательная отправка пакетов по интерфейсам, повышая пропускную способность
+    * `active-backup` - один интерфейс активен, остальные в резерве
+    * `balance-xor` - выбор пакет зависит от значения XOR-хеша от некоторых полей (например, MAC-адресов)
+    * `broadcast` - все пакеты дублируются на все интерфейсы
+    * `802.3ad` - агрегирование каналов с помощью протокола LACP
+    * `balance-tlb` - Adaptive transmit load balancing, балансировка только исходящего трафика между подчинёнными интерфейсами, RX-пакеты принимаются через активный интерфейс (обычно первый или тот, у которого меньше загрузка)
+    * `balance-alb` - Adaptive load balancing, балансировка исходящего и входящего трафика (TX + RX).
+
+5. Режимы работы адаптера (duplex)
+
+    * `half-duplex` - однонаправленная передача одновременно (как рация), поэтому возможны коллизии
+    * `full-duplex` - одновременная передача и приём пакетов, коллизии невозможны, выше пропускная способность
+
+6. Практический смысл назначения нескольких IP на один интерфейс: возможность обслуживать несколько сетей или VLAN через один физический интерфейс. Удобно для виртуализации и NAT, экономит физические порты.
+
+7.  Практический смысл виртуальных интерфейсов: виртуальные интерфейсы можно использовать для виртуальных локальных сетей, для тестирования и изоляции трафика
+
+
