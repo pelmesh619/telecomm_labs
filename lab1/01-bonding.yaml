@@ -1,0 +1,15 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3: {}
+    enp0s8: {}
+  bonds:
+    bond007:
+      interfaces:
+        - enp0s3
+        - enp0s8
+      parameters:
+        mode: balance-rr
+        mii-monitor-interval: 100
+      dhcp4: true
