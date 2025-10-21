@@ -22,7 +22,7 @@ sudo systemctl restart NetworkManager
 
 ## Часть 1
 
-Запускаем машину с Debian или CentOS с изначальным сетевыми адаптерами
+Запускаем машину с Debian или CentOS с изначальным сетевым адаптером
 
 Скрипт:
 
