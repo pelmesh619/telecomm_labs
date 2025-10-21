@@ -40,6 +40,22 @@
     sudo ./VBoxLinuxAdditions-arm64.run --nox11
     ```
 
+ИЛИ выполните все команды с помощью одной:
+
+```sh
+# Для Debian на x86
+wget -O - https://raw.githubusercontent.com/pelmesh619/telecomm_labs/refs/heads/main/shareddir/debian_x86.sh | bash
+
+# Для Debian на arm
+wget -O - https://raw.githubusercontent.com/pelmesh619/telecomm_labs/refs/heads/main/shareddir/debian_arm.sh | bash
+
+# Для CentOS на x86
+wget -O - https://raw.githubusercontent.com/pelmesh619/telecomm_labs/refs/heads/main/shareddir/centos_x86.sh | bash
+
+# Для CentOS на arm
+wget -O - https://raw.githubusercontent.com/pelmesh619/telecomm_labs/refs/heads/main/shareddir/centos_arm.sh | bash
+```
+
 7. Теперь перейдите в раздел "Общие папки" в настройках, иконка справа "Добавляет новую общую папку"
 
     Укажите путь к желаемой папке в ОС хоста (лучше создать пустую папку), имя папки и точку подключения, например, `/shared/`
