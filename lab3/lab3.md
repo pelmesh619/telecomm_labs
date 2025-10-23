@@ -663,7 +663,7 @@ ssh [имя пользователя в ОС]@[IP-адрес машины с7-1]
 
 Демон ssh с таким же PID
 
-> Файлы: скрипт для показа дочерних ssh-демонов - [7.sh](https://github.com/pelmesh619/telecomm_labs/blob/main/lab1/debian_setup.sh), [centos_setup.sh](https://github.com/pelmesh619/telecomm_labs/blob/main/lab3/7.sh)
+> Файлы: скрипт для показа дочерних ssh-демонов - [7.sh](https://github.com/pelmesh619/telecomm_labs/blob/main/lab1/debian_setup.sh)
 
 ## Часть 8
 
@@ -740,7 +740,7 @@ E..%.]@.@.r`
 
 Других пакетов по UDP мы не получили
 
-> Файлы: избранная статья с Wikipedia - [message.txt](https://github.com/pelmesh619/telecomm_labs/blob/main/lab1/debian_setup.sh), [centos_setup.sh](https://github.com/pelmesh619/telecomm_labs/blob/main/lab3/message.txt)
+> Файлы: избранная статья с Wikipedia - [message.txt](https://github.com/pelmesh619/telecomm_labs/blob/main/lab1/debian_setup.sh)
 
 ## Ответы на вопросы
 
