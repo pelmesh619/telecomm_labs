@@ -4,11 +4,11 @@
 
 Тут есть:
 
-* Лабораторная №1 - [lab1.md](/lab1/lab1.md)
-* Лабораторная №2 - [lab2.md](/lab2/lab2.md)
-* Лабораторная №3 - [lab3.md](/lab3/lab3.md)
+* Лабораторная №1 - [lab1.md](https://pelmesh619.github.io/telecomm_labs/lab1/lab1.html)
+* Лабораторная №2 - [lab2.md](https://pelmesh619.github.io/telecomm_labs/lab3/lab3.html)
+* Лабораторная №3 - [lab3.md](https://pelmesh619.github.io/telecomm_labs/lab3/lab3.html)
 
-* Гайд по установке общей папки на VirtualBox - [shareddir/guide.md](/shareddir/guide.md)
+* Гайд по установке общей папки на VirtualBox - [shareddir/guide.md](https://pelmesh619.github.io/telecomm_labs/shareddir/guide.html)
 
 Используйте только для ознакомления и когда прям очень-очень трудно - ведь за списывание могут отчислить ¯\\\_(ツ)\_/¯
 
