@@ -7,6 +7,7 @@
 * Лабораторная №1 - [lab1.md](https://pelmesh619.github.io/telecomm_labs/lab1/lab1.html)
 * Лабораторная №2 - [lab2.md](https://pelmesh619.github.io/telecomm_labs/lab3/lab3.html)
 * Лабораторная №3 - [lab3.md](https://pelmesh619.github.io/telecomm_labs/lab3/lab3.html)
+* Лабораторная №4 - [lab4.md](https://pelmesh619.github.io/telecomm_labs/lab4/lab4.html)
 
 * Гайд по установке общей папки на VirtualBox - [shareddir/guide.md](https://pelmesh619.github.io/telecomm_labs/shareddir/guide.html)
 
