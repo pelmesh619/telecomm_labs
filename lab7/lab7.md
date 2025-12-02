@@ -437,9 +437,40 @@ named-checkconf /etc/bind/named.conf.options
 systemctl restart named
 ```
 
-Ошибки можно посмотреть с помощью команды `systemctl status named` или `journalctl -xeu named`
+Убеждаем, что DNS-запросы идут из `c7-2` через `c7-1`:
 
-На машине `c7-2` делаем `dig google.com`, проверяем, что `status: NOERROR`, если `status: SERVFAIL`, то чекаем логи
+```
+; <<>> DiG 9.18.28-1~deb12u2-Debian <<>> itmo.ru
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 3112
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: e01b575800724ee601000000692f1202fd94f5ad03dd3428 (good)
+;; QUESTION SECTION:
+;itmo.ru.			IN	A
+
+;; ANSWER SECTION:
+itmo.ru.		7176	IN	A	51.250.120.146
+
+;; Query time: 4 msec
+;; SERVER: 10.0.0.1#53(10.0.0.1) (UDP)
+;; WHEN: Tue Dec 02 16:18:44 MSK 2025
+;; MSG SIZE  rcvd: 80
+```
+
+Видим IP-адрес `10.0.0.1`. Если `status: SERVFAIL`, то чекаем логи с помощью команды `systemctl status named` или `journalctl -xeu named`
+
+С помощью команды `dig version.bind txt chaos` на машине `c7-2` проверяем, что версия изменена:
+
+```
+;; ANSWER SECTION:
+version.bind.		0	CH	TXT	"My Own DNS Server"
+```
+
+---
 
 С помощью команды `rndc` можно управлять статистикой и кэшем:
 
