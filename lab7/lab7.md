@@ -546,3 +546,15 @@ systemctl restart named
     www.pelmeshke.local.	300	IN	CNAME	gate.pelmeshke.local.
     gate.pelmeshke.local.	300	IN	A	10.0.0.1
     ```
+
+## Ответы на вопросы
+
+1. _Опишите, как в выводе команды dig соотносятся секции HEADER, QUESTION SECTION, ANSWER SECTION, AUTHORITY SECTION, SERVER, WHEN и MSG SIZE с полями секции HEADER. Опишите назначение каждой секции._
+
+    Заголовок содержит флаги, код ответа, количество запросов и ответов. `QUESTION SECTION`, `ANSWER SECTION`, `AUTHORITY SECTION` - секции запросов, ответов и авторитетных серверов соответственно внутри DNS-сообщения
+
+    `SERVER` - это DNS-сервер, которому был послан запрос, `WHEN` - время на хосте, а `MSG SIZE` - размер сообщения
+
+2. _Как по ответу утилиты dig в Части 3 можно понять, что ответ получен именно от вашего кэширующего DNS сервера?_
+
+    В поле `SERVER` написан IP-адрес машины `c7-1`, то есть `10.0.0.1`
